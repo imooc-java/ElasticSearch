@@ -1,0 +1,22 @@
+{ "index": {"_id": "1"} }
+{ "author": "王五", "title": "菜谱", "word_count": 5000, "publish_date": "2002-10-01"}
+{ "index": {"_id": "2"} }
+{ "author": "瓦力", "title": "ElasticSearch入门", "word_count": 3000, "publish_date": "2007-08-20"}
+{ "index": {"_id": "3"} }
+{ "author": "很胖的瓦力", "title": "ElasticSearch精通", "word_count": 3000, "publish_date": "2017-10-01"}
+{ "index": {"_id": "4"} }
+{ "author": "牛魔王", "title": "芭蕉扇", "word_count": 1000, "publish_date": "2000-10-01"}
+{ "index": {"_id": "5"} }
+{ "author": "李三", "title": "Java入门", "word_count": 2000, "publish_date": "2002-11-01"}
+{ "index": {"_id": "6"} }
+{ "author": "李四", "title": "ElasticSearch大法好", "word_count": 1000, "publish_date": "2002-10-01"}
+{ "index": {"_id": "7"} }
+{ "author": "赵六", "title": "剑谱", "word_count": 10000, "publish_date": "2002-10-02"}
+{ "index": {"_id": "8"} }
+{ "author": "张三", "title": "移魂大法", "word_count": 1000, "publish_date": "2012-10-01"}
+{ "index": {"_id": "9"} }
+{ "author": "张三丰", "title": "太极拳", "word_count": 1000, "publish_date": "2002-10-01"}
+{ "index": {"_id": "10"} }
+{ "author": "张四", "title": "Python入门", "word_count": 2000, "publish_date": "2016-02-01"}
+{ "index": {"_id": "11"} }
+{ "author": "孙悟空", "title": "七十二变", "word_count": 1000, "publish_date": "2000-10-01"}

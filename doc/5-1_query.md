@@ -32,11 +32,11 @@ title 匹配 "ElasticSearch" 或 "入门"
 
 ```json
 {
-	"query": {
-		"match": {
-			"title": "ElasticSearch入门"
-		}
-	}
+    "query": {
+        "match": {
+            "title": "ElasticSearch入门"
+        }
+    }
 }
 ```
 
@@ -46,11 +46,11 @@ title 精确匹配 "ElasticSearch入门"
 
 ```json
 {
-	"query": {
-		"match_phrase": {
-			"title": "ElasticSearch入门"
-		}
-	}
+    "query": {
+        "match_phrase": {
+            "title": "ElasticSearch入门"
+        }
+    }
 }
 ```
 
@@ -60,12 +60,12 @@ author 或 title 匹配 "瓦力"
 
 ```json
 {
-	"query": {
-		"multi_match": {
-			"query": "瓦力",
-			"fields": ["author", "title"]
-		}
-	}
+    "query": {
+        "multi_match": {
+            "query": "瓦力",
+            "fields": ["author", "title"]
+        }
+    }
 }
 ```
 
@@ -75,11 +75,11 @@ author 或 title 匹配 "瓦力"
 
 ```json
 {
-	"query": {
-		"query_string": {
-			"query": "(ElasticSearch AND 大法) OR Python"
-		}
-	}
+    "query": {
+        "query_string": {
+            "query": "(ElasticSearch AND 大法) OR Python"
+        }
+    }
 }
 ```
 
@@ -89,12 +89,12 @@ author 或 title 字段匹配 "瓦力" 或 "ElasticSearch"
 
 ```json
 {
-	"query": {
-		"query_string": {
-			"query": "瓦力 OR ElasticSearch",
-			"fields": ["author", "title"]
-		}
-	}
+    "query": {
+        "query_string": {
+            "query": "瓦力 OR ElasticSearch",
+            "fields": ["author", "title"]
+        }
+    }
 }
 ```
 
@@ -104,11 +104,11 @@ author 匹配 "瓦力"
 
 ```json
 {
-	"query": {
-		"term": {
-			"author": "瓦力"
-		}
-	}
+    "query": {
+        "term": {
+            "author": "瓦力"
+        }
+    }
 }
 ```
 
@@ -118,14 +118,14 @@ author 匹配 "瓦力"
 
 ```json
 {
-	"query": {
-		"range": {
-			"word_count": {
-				"gte": 1000,
-				"lte": 2000
-			}
-		}
-	}
+    "query": {
+        "range": {
+            "word_count": {
+                "gte": 1000,
+                "lte": 2000
+            }
+        }
+    }
 }
 ```
 
@@ -135,13 +135,13 @@ author 匹配 "瓦力"
 
 ```json
 {
-	"query": {
-		"range": {
-			"publish_date": {
-				"gte": "2016-01-01",
-				"lte": "now"
-			}
-		}
-	}
+    "query": {
+        "range": {
+            "publish_date": {
+                "gte": "2016-01-01",
+                "lte": "now"
+            }
+        }
+    }
 }
 ```

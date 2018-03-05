@@ -10,15 +10,15 @@ http://127.0.0.1:9200/book/_search
 
 ```json
 {
-	"query": {
-		"bool": {
-			"filter": {
-				"term": {
-					"word_count": 1000
-				}
-			}
-		}
-	}
+    "query": {
+        "bool": {
+            "filter": {
+                "term": {
+                    "word_count": 1000
+                }
+            }
+        }
+    }
 }
 ```
 

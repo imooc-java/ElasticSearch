@@ -40,7 +40,7 @@
 
 ## 第6章 Spring Boot集成ES
 
-* [ ] [6-1 SpringBoot集成ElasticSearch (05:21)](./doc/6-1_SpringBoot集成ElasticSearch.md)
+* [x] [6-1 SpringBoot集成ElasticSearch (05:21)](./doc/6-1_SpringBoot集成ElasticSearch.md)
 * [ ] [6-2 查询接口开发 (03:37)](./doc/6-2_查询接口开发.md)
 * [ ] [6-3 增加接口开发 (06:32)](./doc/6-3_增加接口开发.md)
 * [ ] [6-4 删除接口开发 (02:51)](./doc/6-4_删除接口开发.md)

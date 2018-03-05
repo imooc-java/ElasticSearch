@@ -6,6 +6,7 @@
 
     <groupId>com.imooc</groupId>
     <artifactId>ElasticSearch</artifactId>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
 
@@ -21,16 +22,36 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <dependency.version>LATEST</dependency.version>
+        <elasticsearch.version>5.5.2</elasticsearch.version>
     </properties>
 
-    <dependencies>
-        <!--<version>${dependency.version}</version>-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.6.RELEASE</version>
+    </parent>
 
+    <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--elasticsearch 客户端-->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>transport</artifactId>
+            <version>${elasticsearch.version}</version>
+        </dependency>
+        <!--ElasticSearch 5.x 根据官网配置maven 依赖, 由于 5.0x的 jar 内部使用的 apache log4日志。-->
+        <!--所以要配置额外的依赖支持 org.apache.logging.log4j。-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
 
     </dependencies>
@@ -38,34 +59,8 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20.1</version>
-                <configuration>
-                    <!-- 跳过单元测试 -->
-                    <!--<skipTests>true</skipTests>-->
-
-                    <!-- 跳过单元测试代码编译 -->
-                    <!--<skip>true</skip>-->
-
-                    <!-- 包含与排除测试用例 -->
-                    <!--<includes>-->
-                    <!--<include>**/*Tests.java</include>-->
-                    <!--</includes>-->
-                    <!--<excludes>-->
-                    <!--<exclude>**/*ServiceTest.java</exclude>-->
-                    <!--<exclude>**/TempDaoTest.java</exclude>-->
-                    <!--</excludes>-->
-                </configuration>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

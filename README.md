@@ -35,7 +35,7 @@
 ## 第5章 高级查询
 
 * [x] [5-1 query (09:01)](./doc/5-1_query.md)
-* [ ] [5-2 filter (01:48)](./doc/5-2_filter.md)
+* [x] [5-2 filter (01:48)](./doc/5-2_filter.md)
 * [ ] [5-3 复合查询 (06:00)](./doc/5-3_复合查询.md)
 
 ## 第6章 Spring Boot集成ES

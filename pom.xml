@@ -22,7 +22,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <dependency.version>LATEST</dependency.version>
-        <elasticsearch.version>5.5.2</elasticsearch.version>
+        <elasticsearch.version>6.2.2</elasticsearch.version>
     </properties>
 
     <parent>

@@ -2,7 +2,7 @@ package com.imooc.elasticsearch;
 
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +25,7 @@ public class MyConfig {
 
         int[] local_ports = {9300, 9301, 9302};
         for (int port : local_ports) {
-            client.addTransportAddress(new InetSocketTransportAddress(
+            client.addTransportAddress(new TransportAddress(
                     InetAddress.getByName("localhost"), port
             ));
         }

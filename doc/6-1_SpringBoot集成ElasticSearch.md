@@ -8,5 +8,5 @@
 
 * `ClassNotFoundException: org.elasticsearch.plugins.xxx`
 
-可以参考：https://github.com/elastic/elasticsearch/issues/21172
+  可以参考：https://github.com/elastic/elasticsearch/issues/21172
 

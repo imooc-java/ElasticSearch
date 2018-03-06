@@ -3,8 +3,7 @@
 * SpringBoot 集成 ES
 * 图书信息管理接口开发
 
-
-## 异常处理
+## 问题整理
 
 * `ClassNotFoundException: org.elasticsearch.plugins.xxx`
 

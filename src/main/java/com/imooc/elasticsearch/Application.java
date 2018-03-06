@@ -3,6 +3,8 @@ package com.imooc.elasticsearch;
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.action.update.UpdateRequest;
+import org.elasticsearch.action.update.UpdateResponse;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentFactory;
@@ -91,5 +93,45 @@ public class Application {
         return new ResponseEntity(response.getResult().toString(), HttpStatus.OK);
     }
 
+
+    // 更新接口
+    @PutMapping("/update/book/novel")
+    @ResponseBody
+    public ResponseEntity update(
+            @RequestParam(name = "id") String id,
+            @RequestParam(name = "title", required = false) String title,
+            @RequestParam(name = "author", required = false) String author,
+            @RequestParam(name = "word_count", required = false) Integer wordCount,
+            @RequestParam(name = "publish_date", required = false)
+            @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date publishDate) {
+
+        try {
+            XContentBuilder builder = XContentFactory.jsonBuilder().startObject();
+
+            if (title != null) {
+                builder.field("title", title);
+            }
+            if (author != null) {
+                builder.field("author", author);
+            }
+            if (wordCount != null) {
+                builder.field("word_count", wordCount);
+            }
+            if (publishDate != null) {
+                builder.field("publish_date", publishDate.getTime());
+            }
+            builder.endObject();
+
+            UpdateRequest update = new UpdateRequest(BOOK_INDEX, BOOK_TYPE_NOVEL, id);
+            update.doc(builder);
+            UpdateResponse response = client.update(update).get();
+            return new ResponseEntity(response.getResult().toString(), HttpStatus.OK);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
+    }
 
 }

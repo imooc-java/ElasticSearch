@@ -1,5 +1,6 @@
 package com.imooc.elasticsearch;
 
+import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.client.transport.TransportClient;
@@ -13,10 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.Date;
@@ -46,16 +44,17 @@ public class Application {
         return "index";
     }
 
+    // 查询接口
     @GetMapping("/get/book/novel")
     public ResponseEntity get(@RequestParam(name = "id", defaultValue = "") String id) {
-        GetResponse result = client.prepareGet(BOOK_INDEX, BOOK_TYPE_NOVEL, id).get();
-        if (!result.isExists()) {
+        GetResponse response = client.prepareGet(BOOK_INDEX, BOOK_TYPE_NOVEL, id).get();
+        if (!response.isExists()) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(result.getSource(), HttpStatus.OK);
+        return new ResponseEntity(response.getSource(), HttpStatus.OK);
     }
 
-
+    // 增加接口
     @PostMapping("/add/book/novel")
     public ResponseEntity add(
             @RequestParam(name = "title") String title,
@@ -83,5 +82,14 @@ public class Application {
         }
 
     }
+
+    // 删除接口
+    @DeleteMapping("/delete/book/novel")
+    @ResponseBody
+    public ResponseEntity delete(@RequestParam(name = "id") String id) {
+        DeleteResponse response = client.prepareDelete(BOOK_INDEX, BOOK_TYPE_NOVEL, id).get();
+        return new ResponseEntity(response.getResult().toString(), HttpStatus.OK);
+    }
+
 
 }
